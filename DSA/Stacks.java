@@ -1,13 +1,13 @@
 package DSA;
 
 public class Stacks {
-    int stk[];
+    char stk[];
     int top = -1;
     int size;
 
     Stacks(int size) {
         this.size = size;
-        this.stk = new int[size];
+        this.stk = new char[size];
     }
 
     boolean isFull(){
@@ -18,7 +18,7 @@ public class Stacks {
         return (top == -1);
     }
 
-    public void push(int data) {
+    public void push(char data) {
         if(isFull()){
             System.out.println("Stack Overflow");
         }
@@ -29,14 +29,20 @@ public class Stacks {
         }
     }
 
-    public int pop(){
+    public char pop(){
         if (isEmpty()){
             System.out.println("Stack Underflow");
-            return -1; 
+            return 'f'; 
         }
         int temp = top; 
         top--; 
         return(stk[temp]);
         // or: return stk[top--]; //Returns the value present in "stack[top]" and decreases the value of top; 
     }
+
+    public char peek(){
+        return stk[top];
+    }
+
+
 }
