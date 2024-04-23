@@ -1,5 +1,3 @@
-package DSA;
-
 public class Stacks {
     char stk[];
     int top = -1;

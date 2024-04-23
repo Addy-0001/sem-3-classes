@@ -1,7 +1,3 @@
-package DSA;
-
-import DSA.Stacks;
-
 public class CheckBracket {
     String openBracket = "{([";
     String closeBracket = "})]";
