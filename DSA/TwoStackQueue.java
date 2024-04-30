@@ -4,7 +4,8 @@ public class TwoStackQueue {
     Stacks s3 = new Stacks(5); 
 
     void enqueue(int data){
-        s2.push(data);
+        char dataChar = (char)data; 
+        s2.push(dataChar);
         while (!s1.isEmpty()){
             s2.push(s1.pop());
         }
