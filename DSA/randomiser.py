@@ -9,8 +9,8 @@ players = [
     "Aavash",
     "Ritesh",
     "Rohan",
-    "Roshan",
-    "Abhisek",
+    "Subhayu",
+    "",
 ]
 
 Team1 = ["Salin",]
