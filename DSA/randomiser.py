@@ -3,17 +3,17 @@ import random
 players = [
     "Rasailee",
     "Kafle",
-    "Rishan Dai",
     "Sujan",
     "Adamya",
     "Aavash",
-    "Ritesh",
+    "Poddar",
     "Rohan",
     "Subhayu",
+    "", 
     "",
 ]
 
-Team1 = ["Salin",]
+Team1 = ["Rishan Dai",]
 Team2 = ["Aayash", ]
 temp = 0
 count = 9
