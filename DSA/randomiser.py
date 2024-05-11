@@ -1,7 +1,7 @@
 import random
 
 players = [
-    "Rasailee",
+    "Bhujel",
     "Kafle",
     "Sujan",
     "Adamya",
@@ -9,12 +9,13 @@ players = [
     "Poddar",
     "Rohan",
     "Subhayu",
-    "", 
-    "",
+    "Abhisek",
+    "Aayash",
+    "Rishan dai",
 ]
 
-Team1 = ["Rishan Dai",]
-Team2 = ["Aayash", ]
+Team1 = ["Salin",]
+Team2 = ["Rasailee", ]
 temp = 0
 count = 9
 player = ""
@@ -29,5 +30,6 @@ for i in range(len(players)):
         player = players.pop(temp2)
         Team2.append(player)
 
-    count -= 1
+    count = count - 1
 print(Team1, "vs.", Team2)
+
