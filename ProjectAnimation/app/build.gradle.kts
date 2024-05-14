@@ -7,6 +7,10 @@ android {
     namespace = "com.example.projectanimation"
     compileSdk = 34
 
+    buildFeatures{
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.example.projectanimation"
         minSdk = 27
