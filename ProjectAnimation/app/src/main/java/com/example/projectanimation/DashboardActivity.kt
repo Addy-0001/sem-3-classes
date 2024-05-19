@@ -16,7 +16,7 @@ class DashboardActivity : AppCompatActivity() {
 
     lateinit var activityDashboardBinding: ActivityDashboardBinding;
 
-    private fun replaceFragment(fragment : Fragment) {
+    private fun replaceFragment(fragment: Fragment) {
         var fragmentManager: FragmentManager = supportFragmentManager;
         var fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.fragmentLayout, fragment)
@@ -29,6 +29,7 @@ class DashboardActivity : AppCompatActivity() {
         enableEdgeToEdge()
         activityDashboardBinding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(activityDashboardBinding.root)
+        replaceFragment(HomePageFragment())
 
         activityDashboardBinding.bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
@@ -36,7 +37,7 @@ class DashboardActivity : AppCompatActivity() {
                 R.id.search -> replaceFragment(SearchPageFragment())
                 R.id.message -> replaceFragment(MessagePageFragment())
                 R.id.profile -> replaceFragment(ProfilePageFragment())
-                else->{}
+                else -> {}
             }
             true
         }
