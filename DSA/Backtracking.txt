@@ -1,0 +1,7 @@
+Backtracking -> Recursion
+Backtracking is the same as brute force solution. 
+If the iterative Solution is not near to the final solution, we backtrack from the solution and find the optimal soultion.
+The tree made from backtracking algorithm is known as state space tree. 
+The difference between brute force and backtracking is that if the backtracking algorithm is applied and the solution doesn't look close, algorithm automatically backtracks. 
+
+Small Algorithm 
