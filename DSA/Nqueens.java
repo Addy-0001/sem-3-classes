@@ -50,8 +50,7 @@ public class Nqueens {
                 return false;
             }
         }
-
-        return true;
+     return true;
     }
 
     void helper(char board[][], int col, List<List<String>> allBoards) {
