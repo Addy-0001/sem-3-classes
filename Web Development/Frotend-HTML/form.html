@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+    <form action="#" method="POST">
+        <h1>Registration</h1>
+        <div class="row">
+            <div class="column">
+                <label>Full Name</label>
+                <input type="text" name="full_name">
+            </div>
+            <div class="column">
+                <label>Username</label>
+                <input type="text" name="username">
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <label>Email</label>
+                <input type="email" name="email">
+            </div>
+            <div class="column">
+                <label>Phone Number</label>
+                <input type="number" name="phone_number">
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <label>Password</label>
+                <input type="password" name="password1">
+            </div>
+            <div class="column">
+                <label>Confirm Password</label>
+                <input type="password" name="password2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <label>Gender</label>
+                <div class="">
+                    <input type="radio" value="male" name="gender"> Male
+                    <input type="radio" value="female" name="gender"> Female
+                    <input type="radio" value="prefer_not_say" name="gender"> Prefer not saying
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <button type="submit">
+                Register
+            </button>
+        </div>
+    </form>
+</body>
+
+</html>
