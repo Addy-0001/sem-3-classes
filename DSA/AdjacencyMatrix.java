@@ -11,9 +11,9 @@ public class AdjacencyMatrix {
         matrix = new int[v][v];
     }
 
-    void addEdge(int source, int destination) {
-        matrix[source][destination] = 1;
-        matrix[destination][source] = 1;
+    void addEdge(int source, int destination, int weight) {
+        matrix[source][destination] = weight;
+        matrix[destination][source] = weight;
     }
 
     void printGraph() {
@@ -96,16 +96,16 @@ public class AdjacencyMatrix {
 
         // print path to destination using stack
         Stack stk = new Stack<Integer>();
-        int temp = destination; 
-        stk.push(temp); 
-        while(prevpath[temp] != -1){
-            temp = prevpath[temp]; 
-            stk.push(temp); 
+        int temp = destination;
+        stk.push(temp);
+        while (prevpath[temp] != -1) {
+            temp = prevpath[temp];
+            stk.push(temp);
 
         }
 
         System.out.println("printing path");
-        while (!stk.isEmpty()){
+        while (!stk.isEmpty()) {
             System.out.println(stk.pop());
         }
         return dist[destination];
@@ -127,17 +127,68 @@ public class AdjacencyMatrix {
     void DFS(int s) {
         boolean visited[] = new boolean[v];
         dfs(s, visited);
+    }
 
+    int dijakstraAlgorithm(int source, int destination) {
+        boolean visited[] = new boolean[v];
+        int dist[] = new int[v];
+        int prevpath[] = new int[v];
+        for (int i = 0; i < v; i++) {
+            dist[i] = Integer.MAX_VALUE;
+            prevpath[i] = -1;
+        }
+
+        dist[source] = 0;
+        for (int i = 0; i < v; i++) {
+            int u = findMinVertext(visited, dist);
+            visited[u] = true;
+            for (int j = 0; j < v; j++) {
+                // u is connected to j [u = minvertex]
+                if (matrix[u][j] != 0) {
+                    if (!visited[j] && dist[u] + matrix[u][j]<dist[j]){
+                        dist[j] = dist[u] + matrix[u][j]; 
+                        prevpath[j] = u; 
+                    }
+                }
+            }
+        }
+
+        Stack stack = new Stack<Integer>(); 
+        int temp = destination; 
+        while(prevpath[temp] != -1){
+            temp = prevpath[temp]; 
+            stack.push(temp); 
+        }
+
+        System.out.println("printing path");
+        while(!stack.isEmpty()){
+            int val = stack.pop(); 
+            System.out.println(val);
+        }
+
+        return dist[destination];
+    }
+
+    int findMinVertext(boolean visited[], int dist[]) {
+        int minVertex = -1;
+        for (int i = 0; i < v; i++) {
+            if (!visited[i] && dist[i] != Integer.MAX_VALUE && (minVertex == -1 || dist[minVertex] > dist[i])) {
+                minVertex = i;
+            }
+        }
+        return minVertex;
     }
 
     public static void main(String[] args) {
         AdjacencyMatrix adj = new AdjacencyMatrix(5);
-        adj.addEdge(0, 1);
-        adj.addEdge(0, 2);
-        adj.addEdge(2, 3);
-        adj.addEdge(2, 4);
-        adj.addEdge(1, 4);
-        adj.addEdge(3, 4);
+        adj.addEdge(0, 1, 5);
+        adj.addEdge(0, 2, 5);
+        adj.addEdge(0, 5, 20);
+        adj.addEdge(2, 3, 2);
+        adj.addEdge(1, 3, 5);
+        adj.addEdge(2, 4, 10);
+        adj.addEdge(3, 5, 1);
+        adj.addEdge(4, 5, 5);
 
         adj.printGraph();
 
