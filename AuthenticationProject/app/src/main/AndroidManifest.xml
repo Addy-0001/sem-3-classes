@@ -10,22 +10,19 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GameTask"
+        android:theme="@style/Theme.AuthenticationProject"
         tools:targetApi="31">
         <activity
-            android:name=".BaseActivity1"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".GameOver"
+            android:name=".AddProduct"
             android:exported="false" />
         <activity
-            android:name=".GamePage"
+            android:name=".Dashboard"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPassword"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
