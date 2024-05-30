@@ -1,26 +1,37 @@
 {
   "project_info": {
-    "project_number": "457744826766",
-    "project_id": "kotlin-sem-3-project",
-    "storage_bucket": "kotlin-sem-3-project.appspot.com"
+    "project_number": "505466932073",
+    "firebase_url": "https://sem3-c34b-default-rtdb.firebaseio.com",
+    "project_id": "sem3-c34b",
+    "storage_bucket": "sem3-c34b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:457744826766:android:e94871437a8f8f5fd064df",
+        "mobilesdk_app_id": "1:505466932073:android:4b00b577da60b18d57cbf8",
         "android_client_info": {
-          "package_name": "com.example.cruddatabse_firebase"
+          "package_name": "com.example.authenticationproject"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "505466932073-o1p56jc5hd6vrslprvbklhlj7qv1q69c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyCven6I1KQzHUI3dWExUj5EJNa0I6GaLww"
+          "current_key": "AIzaSyCQYTevc8EeJuoXPZak1wV5y2rjA2MXdsQ"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "505466932073-o1p56jc5hd6vrslprvbklhlj7qv1q69c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
