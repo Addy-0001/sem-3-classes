@@ -3,7 +3,6 @@ package com.example.cruddatabse_firebase
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -19,42 +18,48 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class DashBoardActivity : AppCompatActivity() {
-    lateinit var binding: ActivityDashBoardBinding
-    var database: FirebaseDatabase = FirebaseDatabase.getInstance()
-    var ref: DatabaseReference = database.reference.child("products")
-    var productList = ArrayList<ProductModel>();
+    lateinit var binding:ActivityDashBoardBinding
+    var database : FirebaseDatabase = FirebaseDatabase.getInstance()
+    var ref : DatabaseReference = database.reference.child("products")
+
+    var productList = ArrayList<ProductModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityDashBoardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.floatingActionButton.setOnClickListener {
-            var intent = Intent(this@DashBoardActivity, AddProductActivity::class.java)
+        binding.floatingActionButton.setOnClickListener{
+            var intent = Intent(this@DashBoardActivity,AddProductActivity::class.java)
             startActivity(intent)
         }
 
-        ref.addValueEventListener(object : ValueEventListener {
+        ref.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                for (eachData in snapshot.children) {
+                productList.clear()
+                for(eachData in snapshot.children){
                     var product = eachData.getValue(ProductModel::class.java)
-                    if (product != null) {
-                        Log.d("Data from Firebase : ", product.name)
-                        Log.d("Data from Firebase : ", product.id)
-                        Log.d("Data from Firebase : ", product.price.toString())
-                        Log.d("Data from Firebase : ", product.description)
+//                        Log.d("data from firebase", product?.name.toString())
+                    if(product!=null){
+                        Log.d("data from firebase", product.name)
+                        Log.d("data from firebase", product.description)
+                        Log.d("data from firebase", product.price.toString())
+                        Log.d("data from firebase", product.id)
+
                         productList.add(product)
                     }
+
                 }
-                var adapter = ProductAdapter(productList)
+                var adapter = ProductAdapter(this@DashBoardActivity, productList)
                 binding.recyclerView.layoutManager = LinearLayoutManager(this@DashBoardActivity)
                 binding.recyclerView.adapter = adapter
-            }
 
+            }
 
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
+
         })
 
 

@@ -10,23 +10,23 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:id="@+id/name"
+        android:id="@+id/u_name"
         android:hint="Enter product name"
         android:layout_height="wrap_content"/>
     <EditText
         android:layout_width="match_parent"
-        android:id="@+id/price"
+        android:id="@+id/u_price"
         android:hint="Enter product Price"
         android:layout_height="wrap_content"/>
     <EditText
         android:layout_width="match_parent"
-        android:id="@+id/description"
+        android:id="@+id/u_description"
         android:hint="Enter product Description"
         android:layout_height="wrap_content"/>
     <Button
         android:layout_width="wrap_content"
-        android:id="@+id/btnProduct"
-        android:text="Save"
+        android:id="@+id/btnUpdate"
+        android:text="Update"
         android:layout_gravity="center"
         android:layout_height="wrap_content"/>
 
