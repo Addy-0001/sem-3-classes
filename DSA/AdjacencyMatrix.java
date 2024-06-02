@@ -162,7 +162,7 @@ public class AdjacencyMatrix {
 
         System.out.println("printing path");
         while(!stack.isEmpty()){
-            int val = stack.pop(); 
+            Object val = stack.pop(); 
             System.out.println(val);
         }
 
