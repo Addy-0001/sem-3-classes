@@ -27,6 +27,18 @@ public class BST {
         return root;
     }
 
+    Node get(Node root, int data) {
+        if (root == null) {
+            return root;
+        }
+        if (data < root.data) {
+            get(root.left, data);
+        } else if ( data > root.data){
+            get(root.right, data);  
+        } 
+        return root; 
+    }
+
     public static void main(String[] args) {
         BST bst = new BST();
         Node root = bst.createBST(null, 11);
