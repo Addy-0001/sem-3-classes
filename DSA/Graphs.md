@@ -14,3 +14,12 @@ Node or vertex
 * A graph is a collection (non empty set) of vertices and edges
 * A graph can either be directed graph or undirected graph
 *
+
+
+### Topological Sorting
+It is a linear ordering of DAG (Directed Acyclic Graph) graph such that for every edge, u to v, u must come before v in ordering. 
+
+# Implement Topological Sorting Tomorrow. 
+# 
+# 
+# 
