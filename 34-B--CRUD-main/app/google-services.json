@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "505466932073",
+    "firebase_url": "https://sem3-c34b-default-rtdb.firebaseio.com",
+    "project_id": "sem3-c34b",
+    "storage_bucket": "sem3-c34b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505466932073:android:cd4aa78be864012057cbf8",
+        "android_client_info": {
+          "package_name": "com.application.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "505466932073-o1p56jc5hd6vrslprvbklhlj7qv1q69c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQYTevc8EeJuoXPZak1wV5y2rjA2MXdsQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "505466932073-o1p56jc5hd6vrslprvbklhlj7qv1q69c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505466932073:android:5c311900f58cc65a57cbf8",
+        "android_client_info": {
+          "package_name": "com.example.crud_34b"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "505466932073-o1p56jc5hd6vrslprvbklhlj7qv1q69c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQYTevc8EeJuoXPZak1wV5y2rjA2MXdsQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "505466932073-o1p56jc5hd6vrslprvbklhlj7qv1q69c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505466932073:android:4d31e6ca659cd76457cbf8",
+        "android_client_info": {
+          "package_name": "com.example.cruddatabse_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "505466932073-o1p56jc5hd6vrslprvbklhlj7qv1q69c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQYTevc8EeJuoXPZak1wV5y2rjA2MXdsQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "505466932073-o1p56jc5hd6vrslprvbklhlj7qv1q69c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
