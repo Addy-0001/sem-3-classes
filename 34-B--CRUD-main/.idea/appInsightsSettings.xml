@@ -28,9 +28,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.example.crud_34b" />
-                  <option name="mobileSdkAppId" value="1:996281989655:android:6a747d73f2d66fe137fa52" />
-                  <option name="projectId" value="b-koltin" />
-                  <option name="projectNumber" value="996281989655" />
+                  <option name="mobileSdkAppId" value="1:505466932073:android:5c311900f58cc65a57cbf8" />
+                  <option name="projectId" value="sem3-c34b" />
+                  <option name="projectNumber" value="505466932073" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

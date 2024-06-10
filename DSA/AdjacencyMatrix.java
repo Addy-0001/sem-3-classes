@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Stack;
 
 public class AdjacencyMatrix {
@@ -177,6 +179,41 @@ public class AdjacencyMatrix {
             }
         }
         return minVertex;
+    }
+
+    int topologicalSorting(){ // in exam take matrix[][] and v as arguments
+        int indegree[] = new int[v]; 
+        for (int i = 0; i<v; i++){
+            for(int j=0; j<v; j++){
+                if(matrix[i][j] != 0){
+                    indegree[j]++; 
+                }
+            }
+        }
+
+        Queue <Integer> q = new LinkedList<>(); 
+        for(int i = 0; i < v; i++){
+            if(indegree[i] == 0){
+                q.add(i);
+            }
+        }
+        int cnt = 0; 
+        while (!q.isEmpty()) {
+            int u = q.poll(); 
+            System.out.println(q);
+            for(int j = 0; j<v; j++){
+                if (matrix[u][j]!=0){
+                    indegree[j]--;
+                    if (indegree[j] == 0 ) {
+                        q.add(j); 
+                    }
+                }
+            }
+        }
+        if (cnt!=v){
+            return 1;
+        }
+        return -1; 
     }
 
     public static void main(String[] args) {

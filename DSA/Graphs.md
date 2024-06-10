@@ -18,4 +18,5 @@ Node or vertex
 It is a linear ordering of DAG (Directed Acyclic Graph) graph such that for every edge, u to v, u must come before v in ordering. 
 
 # Topological Sorting Implementation
-
+* Calculate the indegree of each node. 
+* Use Queue as a data structure.

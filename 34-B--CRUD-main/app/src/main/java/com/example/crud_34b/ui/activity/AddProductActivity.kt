@@ -38,6 +38,11 @@ class AddProductActivity : AppCompatActivity() {
     lateinit var activityResultLauncher : ActivityResultLauncher<Intent>
     var imageUri : Uri? = null
 
+    imageUtils = ImageUtils(this)
+    imageUtils.launchGallery(this)
+
+    addProductBinding.btnPost.setOnClickListener()
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -118,10 +123,7 @@ class AddProductActivity : AppCompatActivity() {
                 val resultcode = result.resultCode
                 val imageData = result.data
                 if(resultcode == RESULT_OK && imageData != null){
-                    imageUri = imageData.data
-                    imageUri?.let {
-                        Picasso.get().load(it).into(addProductBinding.imageBrowse)
-                    }
+
                 }
 
             })
