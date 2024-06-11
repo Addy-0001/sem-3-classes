@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -7,15 +8,74 @@ import java.util.Stack;
 public class AdjacencyMatrix {
     int v;
     int matrix[][];
+    Edge edges[]; // for kruskal algorithm
 
     AdjacencyMatrix(int v) {
         this.v = v;
         matrix = new int[v][v];
+        edges = new Edge[v * (v - 1) / 2];
     }
+
+    int edgecnt = -1;
 
     void addEdge(int source, int destination, int weight) {
         matrix[source][destination] = weight;
         matrix[destination][source] = weight;
+        edges[++edgecnt] = new Edge(source, destination, weight);
+    }
+
+    void populateEdgesList() {
+        for (int i = 0; i < v; i++) {
+            for (int j = 0; j < v; j++) {
+                if (matrix[i][j] != 0) {
+                    edges[++edgecnt] = new Edge(i, j, matrix[i][j]);
+                }
+            }
+        }
+    }
+
+    boolean isCycleDetected(int u, int v, int parent[]) {
+        return find(u, parent) == find(v, parent);
+    }
+
+    void krushkal() {
+        int mst[][] = new int[v][v];
+        int parent[] = new int[v];
+        int size[] = new int[v];
+        for (int i = 0; i < v; i++) {
+            parent[i] = -1;
+        }
+        int edgeCounter = 0;
+        int edgeTaken = 1;
+        Arrays.sort(edges);
+        while (edgeTaken < v) {
+            Edge edge = edges[edgeCounter++];
+            if (!isCycleDetected(edge.u, edge.v, parent)) {
+                continue;
+            }
+            union(find(edge.u, parent), find(edge.v, parent), size, parent);
+            mst[edge.u][edge.v] = edge.w;
+
+            mst[edge.v][edge.u] = edge.w;
+            edgeTaken++;
+
+            
+        }
+    }
+
+    int find(int x, int parent[]){
+        return parent[x] = find(parent[x], parent);
+    }
+
+    void union(int uabsroot, int vabsroot, int[] size, int[] parent) {
+        if (size[uabsroot] < size[vabsroot]) {
+            parent[uabsroot] = vabsroot;
+        } else if (size[uabsroot] > size[vabsroot]) {
+            parent[vabsroot] = uabsroot; 
+        } else {
+            parent[vabsroot] = uabsroot;
+            size[uabsroot]++;
+        }
     }
 
     void printGraph() {
@@ -147,24 +207,24 @@ public class AdjacencyMatrix {
             for (int j = 0; j < v; j++) {
                 // u is connected to j [u = minvertex]
                 if (matrix[u][j] != 0) {
-                    if (!visited[j] && dist[u] + matrix[u][j]<dist[j]){
-                        dist[j] = dist[u] + matrix[u][j]; 
-                        prevpath[j] = u; 
+                    if (!visited[j] && dist[u] + matrix[u][j] < dist[j]) {
+                        dist[j] = dist[u] + matrix[u][j];
+                        prevpath[j] = u;
                     }
                 }
             }
         }
 
-        Stack stack = new Stack<Integer>(); 
-        int temp = destination; 
-        while(prevpath[temp] != -1){
-            temp = prevpath[temp]; 
-            stack.push(temp); 
+        Stack stack = new Stack<Integer>();
+        int temp = destination;
+        while (prevpath[temp] != -1) {
+            temp = prevpath[temp];
+            stack.push(temp);
         }
 
         System.out.println("printing path");
-        while(!stack.isEmpty()){
-            Object val = stack.pop(); 
+        while (!stack.isEmpty()) {
+            Object val = stack.pop();
             System.out.println(val);
         }
 
@@ -181,39 +241,55 @@ public class AdjacencyMatrix {
         return minVertex;
     }
 
-    int topologicalSorting(){ // in exam take matrix[][] and v as arguments
-        int indegree[] = new int[v]; 
-        for (int i = 0; i<v; i++){
-            for(int j=0; j<v; j++){
-                if(matrix[i][j] != 0){
-                    indegree[j]++; 
+    int topologicalSorting() { // in exam take matrix[][] and v as arguments
+        int indegree[] = new int[v];
+        for (int i = 0; i < v; i++) {
+            for (int j = 0; j < v; j++) {
+                if (matrix[i][j] != 0) {
+                    indegree[j]++;
                 }
             }
         }
 
-        Queue <Integer> q = new LinkedList<>(); 
-        for(int i = 0; i < v; i++){
-            if(indegree[i] == 0){
+        Queue<Integer> q = new LinkedList<>();
+        for (int i = 0; i < v; i++) {
+            if (indegree[i] == 0) {
                 q.add(i);
             }
         }
-        int cnt = 0; 
+        int cnt = 0;
         while (!q.isEmpty()) {
-            int u = q.poll(); 
+            int u = q.poll();
             System.out.println(q);
-            for(int j = 0; j<v; j++){
-                if (matrix[u][j]!=0){
+            for (int j = 0; j < v; j++) {
+                if (matrix[u][j] != 0) {
                     indegree[j]--;
-                    if (indegree[j] == 0 ) {
-                        q.add(j); 
+                    if (indegree[j] == 0) {
+                        q.add(j);
                     }
                 }
             }
         }
-        if (cnt!=v){
+        if (cnt != v) {
             return 1;
         }
-        return -1; 
+        return -1;
+    }
+
+    public static class Edge implements Comparable<Edge> {
+        int u, v, w;
+
+        public Edge(int u, int v, int w) {
+            this.u = u;
+            this.v = v;
+            this.w = w;
+        }
+
+        @Override
+        public int compareTo(Edge o) {
+            return this.w - o.w;
+        }
+
     }
 
     public static void main(String[] args) {
