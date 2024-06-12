@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserEntity getUserById(String id) {
+    public UserEntity getUserById(Integer id) {
         Optional<UserEntity> user = userRepository.findById(id);
         return user.orElse(null);
     }
@@ -32,16 +32,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserEntity updateUser(String id, UserEntity user) {
+    public UserEntity updateUser(Integer id, UserEntity user) {
         if (userRepository.existsById(id)) {
-            user.setEmailAddress(id);
+            user.setId(id);
             return userRepository.save(user);
         }
         return null;
     }
 
     @Override
-    public void deleteUser(String id) {
+    public void deleteUser(Integer id) {
         userRepository.deleteById(id);
     }
 }

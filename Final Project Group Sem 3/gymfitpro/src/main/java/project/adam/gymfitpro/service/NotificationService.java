@@ -5,12 +5,8 @@ import project.adam.gymfitpro.entity.NotificationEntity;
 
 public interface NotificationService {
     List<NotificationEntity> getAllNotifications();
-
-    NotificationEntity getNotificationById(String id);
-
+    NotificationEntity getNotificationById(Integer id);
     NotificationEntity createNotification(NotificationEntity notification);
-
-    NotificationEntity updateNotification(String id, NotificationEntity notification);
-
-    void deleteNotification(String id);
+    NotificationEntity updateNotification(Integer id, NotificationEntity notification);
+    void deleteNotification(Integer id);
 }

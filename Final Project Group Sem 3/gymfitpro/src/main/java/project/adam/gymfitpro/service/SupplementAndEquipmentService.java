@@ -6,8 +6,8 @@ import project.adam.gymfitpro.entity.SupplementAndEquipmentEntity;
 
 public interface SupplementAndEquipmentService {
     List<SupplementAndEquipmentEntity> getAllSupplementAndEquipment();
-    SupplementAndEquipmentEntity getSupplementAndEquipmentById(String id);
+    SupplementAndEquipmentEntity getSupplementAndEquipmentById(Integer id);
     SupplementAndEquipmentEntity createSupplementAndEquipment(SupplementAndEquipmentEntity supplementAndEquipment);
-    SupplementAndEquipmentEntity updateSupplementAndEquipment(String id, SupplementAndEquipmentEntity supplementAndEquipment);
-    void deleteSupplementAndEquipment(String id);
+    SupplementAndEquipmentEntity updateSupplementAndEquipment(Integer id, SupplementAndEquipmentEntity supplementAndEquipment);
+    void deleteSupplementAndEquipment(Integer id);
 }

@@ -6,12 +6,8 @@ import project.adam.gymfitpro.entity.TrainerEntity;
 
 public interface TrainerService {
     List<TrainerEntity> getAllTrainers();
-
-    TrainerEntity getTrainerById(String id);
-
+    TrainerEntity getTrainerById(Integer id);
     TrainerEntity createTrainer(TrainerEntity trainer);
-
-    TrainerEntity updateTrainer(String id, TrainerEntity trainer);
-
-    void deleteTrainer(String id);
+    TrainerEntity updateTrainer(Integer id, TrainerEntity trainer);
+    void deleteTrainer(Integer id);
 }

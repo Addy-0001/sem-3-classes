@@ -7,21 +7,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Table(name = "notifications")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class NotificationEntity {
 
-    @EmbeddedId
-    private NotificationId id;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private String userEmailAddress;
     private String title;
     private String content;
-
-    @ManyToOne
-    @MapsId("userEmail")
-    @JoinColumn(name = "userEmail")
-    private UserEntity user;
-
 }

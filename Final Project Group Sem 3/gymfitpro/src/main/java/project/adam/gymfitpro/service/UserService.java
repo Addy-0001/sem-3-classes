@@ -5,12 +5,8 @@ import project.adam.gymfitpro.entity.UserEntity;
 
 public interface UserService {
     List<UserEntity> getAllUsers();
-
-    UserEntity getUserById(String id);
-
+    UserEntity getUserById(Integer id);
     UserEntity createUser(UserEntity user);
-
-    UserEntity updateUser(String id, UserEntity user);
-
-    void deleteUser(String id);
+    UserEntity updateUser(Integer id, UserEntity user);
+    void deleteUser(Integer id);
 }

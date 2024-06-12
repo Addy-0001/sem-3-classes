@@ -1,25 +1,24 @@
 package project.adam.gymfitpro.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.MapsId;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 // import project.adam.gymfitpro.pojo.User;
 
+@Entity
+@Table(name = "trainers")
 @Getter
 @Setter
 public class TrainerEntity {
-    @Id
-    private Integer userEmail;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private String userEmailAddress;
     private String certificationTitle;
     private Integer salary;
-
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "userEmail")
-    private UserEntity user;
-
 }

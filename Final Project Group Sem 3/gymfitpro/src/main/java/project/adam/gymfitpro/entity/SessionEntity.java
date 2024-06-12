@@ -1,32 +1,21 @@
 package project.adam.gymfitpro.entity;
 
-import java.sql.Time;
-import java.util.List;
+import java.util.Date;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.MapsId;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@Table(name = "sessions")
 public class SessionEntity {
-    @EmbeddedId
-    private SessionId id;
 
-    private Time sessionDuration;
-
-    @MapsId("userEmail")
-    @ManyToOne
-    @JoinColumn(name = "userEmail")
-    private UserEntity user;
-
-    @OneToMany(mappedBy = "session", cascade = CascadeType.ALL)
-    private List<WorkoutEntity> workouts;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private String userEmailAddress;
+    private Date recordedDate;
+    private String sessionDuration;
 }

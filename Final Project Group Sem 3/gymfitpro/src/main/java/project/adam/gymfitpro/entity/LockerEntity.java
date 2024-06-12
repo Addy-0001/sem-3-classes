@@ -5,12 +5,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
+@Table(name = "lockers")
 @Getter
 @Setter
 public class LockerEntity {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String lockerId;
-    @OneToOne
-    @JoinColumn(name = "userEmail")
-    private UserEntity user;
+    private String userEmailAddress;
 }

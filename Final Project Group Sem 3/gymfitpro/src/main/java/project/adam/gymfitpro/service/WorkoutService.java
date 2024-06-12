@@ -5,12 +5,8 @@ import project.adam.gymfitpro.entity.WorkoutEntity;
 
 public interface WorkoutService {
     List<WorkoutEntity> getAllWorkouts();
-
-    WorkoutEntity getWorkoutById(String id);
-
+    WorkoutEntity getWorkoutById(Integer id);
     WorkoutEntity createWorkout(WorkoutEntity workout);
-
-    WorkoutEntity updateWorkout(String id, WorkoutEntity workout);
-
-    void deleteWorkout(String id);
+    WorkoutEntity updateWorkout(Integer id, WorkoutEntity workout);
+    void deleteWorkout(Integer id);
 }
