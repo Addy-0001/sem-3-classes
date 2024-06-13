@@ -5,6 +5,7 @@ import java.util.Date;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import java.sql.Time; 
 
 @Entity
 @Getter
@@ -17,5 +18,5 @@ public class SessionEntity {
     private Integer id;
     private String userEmailAddress;
     private Date recordedDate;
-    private String sessionDuration;
+    private Time sessionDuration;
 }

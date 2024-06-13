@@ -1,20 +1,19 @@
 package project.adam.gymfitpro.service.impl;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import project.adam.gymfitpro.entity.SupplementAndEquipmentEntity;
 import project.adam.gymfitpro.repository.SupplementAndEquipmentRepository;
 import project.adam.gymfitpro.service.SupplementAndEquipmentService;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
+@RequiredArgsConstructor
 public class SupplementAndEquipmentServiceImpl implements SupplementAndEquipmentService {
 
-    @Autowired
-    private SupplementAndEquipmentRepository supplementAndEquipmentRepository;
+    private final SupplementAndEquipmentRepository supplementAndEquipmentRepository;
 
     @Override
     public List<SupplementAndEquipmentEntity> getAllSupplementAndEquipment() {
