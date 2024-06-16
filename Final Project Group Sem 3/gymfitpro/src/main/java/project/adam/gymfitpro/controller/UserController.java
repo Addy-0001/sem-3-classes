@@ -37,6 +37,11 @@ public class UserController {
         return userService.createUser(user);
     }
 
+    // @PostMapping("/login")
+    // public UserEntity login(@RequestBody UserEntity user) {
+    //     return userService.login(user);
+    // }
+
     @PutMapping("/{id}")
     public UserEntity updateUser(@PathVariable Integer id, @RequestBody UserEntity user) {
         return userService.updateUser(id, user);
